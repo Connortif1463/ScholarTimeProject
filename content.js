@@ -16,6 +16,7 @@ var forbiddenWebsites = [
 
 // Check if the current URL matches any forbidden website
 if (isForbidden(window.location.href)) {
+    // Open forbidden.html in a new tab
     chrome.runtime.sendMessage({ action: "openForbiddenPage" });
 }
 
