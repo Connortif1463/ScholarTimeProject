@@ -1,12 +1,11 @@
-// popup.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Get reference to cancel button
-    var cancelBtn = document.getElementById('cancelBtn');
+    // Get reference to toggle button
+    var toggleBtn = document.getElementById('toggleBtn');
 
-    // Cancel button listener
-    cancelBtn.addEventListener('click', function() {
-        console.log("Cancel button clicked");
-        // Navigate to Google
-        chrome.tabs.update({ url: "https://www.google.com/" });
+    // Toggle button listener
+    toggleBtn.addEventListener('click', function() {
+        console.log("Toggle button clicked");
+        // Send message to toggle functionality
+        chrome.runtime.sendMessage({ action: "toggleFunctionality" });
     });
 });
