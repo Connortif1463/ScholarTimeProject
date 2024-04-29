@@ -18,14 +18,9 @@
             position: relative;
         }
 
-        #appTitle {
+        header {
             position: absolute;
             top: 20px;
-        }
-
-        #appTitle img {
-            width: 128px;
-            height: auto;
         }
 
         h1 {
@@ -36,10 +31,10 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        h3 {
+        h2 {
             margin-bottom: 40px;
             color: #666;
-            font-size: 20px;
+            font-size: 24px;
             text-align: center;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
@@ -50,22 +45,22 @@
             cursor: pointer;
             border: none;
             border-radius: 30px;
-            background-color: #63a4ff;
+            background-color: #9b59b6; /* Purple color */
             color: white;
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #4a90e2;
+            background-color: #8e44ad; /* Darker shade of purple on hover */
         }
     </style>
 </head>
 <body>
-    <div id="appTitle">
-        <img src="your-icon.png" alt="App Icon">
-    </div>
-    <h1>Hello there!</h1>
+    <header>
+        <h1>ScholarTime 🎓</h1>
+    </header>
+    <h2>Hello there!</h2>
     <h3>It seems like you've tried to open a service that isn't permitted.</h3>
     <button id="cancelBtn">Go to Google.com</button>
     <script src="forbidden.js"></script>
