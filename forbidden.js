@@ -1,3 +1,4 @@
+// forbidden.js
 document.addEventListener('DOMContentLoaded', function() {
     // Get reference to cancel button
     var cancelBtn = document.getElementById('cancelBtn');
