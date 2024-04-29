@@ -1,6 +1,7 @@
-// Listener for showing forbidden page
+// Listen for messages from content scripts
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-    if (message.action == "showForbiddenPage") {
-        chrome.tabs.create({ url: "forbidden.html" });
+    // Open forbidden.html in the current tab
+    if (message.action == "openForbiddenPage") {
+        chrome.tabs.update(sender.tab.id, { url: "forbidden.html" });
     }
 });

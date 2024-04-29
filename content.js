@@ -1,6 +1,6 @@
 // List of forbidden websites
 var forbiddenWebsites = [
-    "https://www.youtube.com/", 
+    "https://www.youtube.com/",
     "https://www.facebook.com/", 
     "https://www.whatsapp.com/",
     "https://www.skype.com/",
@@ -9,7 +9,9 @@ var forbiddenWebsites = [
     "https://www.instagram.com/",
     "https://www.snapchat.com/",
     "https://www.twitter.com/",
-    "https://www.x.com/"
+    "https://twitter.com/",
+    "https://www.x.com/",
+    "https://web.snapchat.com/"
 ];
 
 // Check if current URL matches any forbidden website

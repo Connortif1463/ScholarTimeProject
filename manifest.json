@@ -17,7 +17,9 @@
     "https://www.instagram.com/",
     "https://www.snapchat.com/",
     "https://www.twitter.com/",
-    "https://www.x.com/"
+    "https://twitter.com/",
+    "https://www.x.com/",
+    "https://web.snapchat.com/"
   ],
   "action": {
     "default_popup": "popup.html",
