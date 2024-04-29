@@ -4,6 +4,6 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     // Open forbidden.html in the current tab
     if (message.action == "openForbiddenPage") {
         console.log("Opening forbidden page...");
-        chrome.tabs.update(sender.tab.id, { url: "forbidden.html" });
+        chrome.tabs.update(sender.tab.id, { url: chrome.runtime.getURL("forbidden.html") });
     }
 });
