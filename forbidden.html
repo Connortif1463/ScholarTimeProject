@@ -15,6 +15,17 @@
             flex-direction: column;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f4;
+            position: relative;
+        }
+
+        #appTitle {
+            position: absolute;
+            top: 20px;
+        }
+
+        #appTitle img {
+            width: 128px;
+            height: auto;
         }
 
         h1 {
@@ -39,21 +50,24 @@
             cursor: pointer;
             border: none;
             border-radius: 30px;
-            background-color: #ff6363;
+            background-color: #63a4ff;
             color: white;
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #ff4444;
+            background-color: #4a90e2;
         }
     </style>
 </head>
 <body>
+    <div id="appTitle">
+        <img src="your-icon.png" alt="App Icon">
+    </div>
     <h1>Hello there!</h1>
     <h3>It seems like you've tried to open a service that isn't permitted.</h3>
-    <button id="cancelBtn">Cancel</button>
+    <button id="cancelBtn">Go to Google.com</button>
     <script src="forbidden.js"></script>
 </body>
 </html>
