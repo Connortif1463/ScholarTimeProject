@@ -24,7 +24,9 @@ function isForbidden(url) {
     return false;
 }
 
-// Send message to background script if current website is forbidden
+// Check if the current URL matches any forbidden website
 if (isForbidden(window.location.href)) {
-    chrome.runtime.sendMessage({ action: "showForbiddenPage" });
+    console.log("Sending message to open forbidden page...");
+    // Send a message to the background script to open forbidden.html
+    chrome.runtime.sendMessage({ action: "openForbiddenPage" });
 }
