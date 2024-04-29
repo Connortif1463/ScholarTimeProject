@@ -1,10 +1,12 @@
-// forbidden.js
-// Listen for messages from content scripts
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-    console.log("Message received in background.js: ", message);
-    // Open forbidden.html in the current tab
-    if (message.action == "openForbiddenPage") {
-        console.log("Opening forbidden page...");
-        chrome.tabs.update(sender.tab.id, { url: "forbidden.html" });
-    }
+// Add event listener when the document is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Get reference to cancel button
+    var cancelBtn = document.getElementById('cancelBtn');
+
+    // Cancel button listener
+    cancelBtn.addEventListener('click', function() {
+        console.log("Cancel button clicked");
+        // Navigate to Google
+        window.location.href = "https://www.google.com/";
+    });
 });
