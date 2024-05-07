@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 3, 
   "name": "ScholarTime",
   "version": "1.0",
   "description": "A chrome extension that can limit access to certain websites while the user is working on productive tasks.",
