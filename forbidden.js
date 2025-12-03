@@ -6,7 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cancel button listener
     cancelBtn.addEventListener('click', function() {
         console.log("Cancel button clicked");
-        // Navigate to Google
-        window.location.href = "https://www.google.com/";
+        if(history.length > 2){
+            history.go(-2)
+        }
+        else {
+            window.location.href = "https://www.google.com/";
+        }
+        
     });
 });
