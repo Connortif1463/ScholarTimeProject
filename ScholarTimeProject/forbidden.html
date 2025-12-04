@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forbidden Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #e0d8e3, #f4f1f4);
+            position: relative;
+        }
+
+        header {
+            position: absolute;
+            top: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 40px;
+            color: #666;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            margin-bottom: 40px;
+            color: #777;
+            font-size: 20px;
+            font-weight: normal;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px;
+            background-color: #9b59b6; /* Purple color */
+            color: white;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #8e44ad; /* Darker shade of purple on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ScholarTime 🎓</h1>
+    </header>
+    <h2>Hello there!</h2>
+    <h3>It seems like you've tried to open a service that isn't permitted.</h3>
+    <button id="cancelBtn">Cancel</button>
+    <script src="forbidden.js"></script>
+</body>
+</html>
