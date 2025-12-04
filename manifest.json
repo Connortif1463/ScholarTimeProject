@@ -1,27 +1,30 @@
 {
-  "manifest_version": 3, 
+  "manifest_version": 3,
   "name": "ScholarTime",
-  "version": "1.0",
+  "version": "2.1",
   "description": "A chrome extension that can limit access to certain websites while the user is working on productive tasks.",
   "permissions": [
     "tabs",
-    "activeTab"
+    "webNavigation",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": ["content.js"]
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["forbidden.html"],
-      "matches": ["*://*/*"]
+      "resources": ["forbidden.html", "forbidden.js"],
+      "matches": ["<all_urls>"]
     }
   ],
   "action": {

@@ -150,3 +150,32 @@ var forbiddenWebsites = [
 
 // Make it a window for access in forbidden.js
 window.forbiddenWebsites = forbiddenWebsites;
+
+console.log("ScholarTime content script loaded on:", window.location.href);
+
+// checks if url starts with a forbidden url
+function isForbidden(url) {
+    for (var i = 0; i < forbiddenWebsites.length; i++) {
+        if (url.startsWith(forbiddenWebsites[i])) {
+            console.log("Current url found forbidden: " + url);
+            return true;
+        }
+    }
+    return false;
+}
+
+// check current page on loading and send message to open forbidden if so
+if (isForbidden(window.location.href)) {
+    console.log("Content script: Blocking current page");
+    chrome.runtime.sendMessage({ action: "openForbiddenPage" });
+}
+
+// listen for background.js msg
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === "checkURL") {
+        const shouldBlock = isForbidden(request.url);
+        console.log("Content script: Checking URL", request.url, "-> Block:", shouldBlock);
+        sendResponse({ shouldBlock: shouldBlock });
+    }
+    return true;
+});
