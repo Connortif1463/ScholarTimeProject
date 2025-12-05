@@ -12,7 +12,7 @@ function isForbidden(url) {
     return false;
 }
 
-// Check if current page forbidden on page load
+// Check if current page forbidden before page fully loads
 if (isForbidden(window.location.href)) {
     // Redirect the current tab to the forbidden page
     chrome.runtime.sendMessage({ action: "openForbiddenPage" });
