@@ -1,0 +1,141 @@
+html, body {
+    width: 280px;
+    height: 180px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars */
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #e0d8e3 0%, #d1c4e9 100%); /* Purple gradient */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+/* Title container */
+.title-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(155, 89, 182, 0.2); /* Subtle purple border */
+}
+
+/* Title styling */
+.settings-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #5e35b1; /* Deep purple for title */
+}
+
+.control-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.switch-label {
+    color: #5e35b1;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #b39ddb; /* Lighter purple when off */
+    -webkit-transition: .4s;
+    transition: .4s;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background-color: #9b59b6; /* Purple when on */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.3);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.status-text {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #7e57c2;
+    text-align: center;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    min-width: 80px;
+}
+
+/* Updated: Remove border-radius from drop shadow */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* No border-radius here */
+    pointer-events: none;
+    z-index: -1;
+}
