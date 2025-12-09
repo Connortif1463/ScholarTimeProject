@@ -44,7 +44,16 @@ var forbiddenDomains = [
     "tubitv.com",
     "plutotv.com",
     "blog.youtube",
-    "play.google.com",
+    "123movies",
+    "movietrunk",
+    "safe123moviesfree.org",
+    "safe123moviesfree.org",
+    "safe123moviesfree.org",
+    "ok123movies.cc",
+    "123moviesfree4u.icu",
+    "yesmovies.to",
+    "123moviesfree4u.top",
+    "123-hd.lol",
     
     // music
     "spotify.com",
@@ -139,9 +148,28 @@ var forbiddenDomains = [
     "spankbang.com",
     "rule34.com",
     "beeg.com",
-    "8muses.com"
+    "8muses.com",
+
+    // Google entertainment services only
+    "music.youtube.com",
+    "tv.youtube.com",
+    "studio.youtube.com",
 
 ];
+
+function checkSpecificUrlPatterns(url) {
+    const specificPatterns = [
+        "play.google.com/movies",
+        "play.google.com/tv",
+    ];
+    
+    for (let pattern of specificPatterns) {
+        if (url.includes(pattern)) {
+            return true;
+        }
+    }
+    return false;
+}
 
 // Extract clean domain from URL
 function getCleanDomain(url) {
@@ -221,13 +249,21 @@ function shouldBlockUrl(url) {
             
             // Check forbidden domains
             for (let forbiddenDomain of forbiddenDomains) {
+
+                // checking for forbidden domains first
                 if (domainsMatch(currentDomain, forbiddenDomain)) {
                     console.log("Domain is forbidden:", currentDomain, "matches", forbiddenDomain);
                     resolve(true);
                     return;
                 }
+
+                // then checking for google play and other custom domains
+                if (checkSpecificUrlPatterns(url)) {
+                    resolve(true);
+                    return;
+                }
             }
-            
+        
             resolve(false);
         });
     });
