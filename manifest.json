@@ -30,10 +30,9 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icons/icon16.png",
-      "32": "icons/icon32.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
+      "16": "icons/convertico-ScholarTime_Logo/convertico-ScholarTime_Logo_16x16.png",
+      "32": "icons/convertico-ScholarTime_Logo/convertico-ScholarTime_Logo_32x32.png",
+      "128": "icons/convertico-ScholarTime_Logo/convertico-ScholarTime_Logo_128x128.png"
     }
   }
 }

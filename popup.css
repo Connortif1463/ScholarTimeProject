@@ -1,9 +1,13 @@
+/* popup.css */
+
+/* Set fixed dimensions for the popup */
 html, body {
-    width: 280px;
-    height: 200px;
+    width: 350px; /* Increased width to fit all content */
+    height: auto; /* Let height adjust to content */
+    min-height: 320px; /* Minimum height */
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevent scrollbars */
+    overflow: visible; /* Changed from hidden to visible */
     box-sizing: border-box;
     background: linear-gradient(135deg, #e0d8e3 0%, #d1c4e9 100%); /* Purple gradient */
 }
@@ -17,39 +21,56 @@ body {
     padding: 20px;
     box-sizing: border-box;
     background: transparent;
+    width: 100%; /* Ensure body fills the html */
 }
 
-/* Title container */
-.title-container {
-    width: 100%;
+/* Logo container */
+body > div:first-child {
     text-align: center;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(155, 89, 182, 0.2); /* Subtle purple border */
+    margin-bottom: 10px;
 }
 
-/* Title styling */
+body > div:first-child img {
+    width: 48px; /* Larger logo */
+    height: 48px;
+}
+
 .settings-title {
-    margin: 0;
+    margin: 0 0 5px 0; /* Reduced bottom margin */
     font-size: 20px;
     font-weight: 600;
+    font-style: bold;
     letter-spacing: 0.5px;
-    color: #5e35b1; /* Deep purple for title */
-}
-
-.control-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 5px;
-}
-
-.switch-label {
     color: #5e35b1;
+    text-align: center;
+    width: 100%;
+}
+
+h8 {
+    color: #7e57c2;
+    display: block;
+    text-align: center;
     font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 5px;
+    margin: 0 0 15px 0;
+    font-style: italic;
+}
+
+/* On/Off Section */
+h3 {
+    margin: 15px 0 10px 0; /* Consistent spacing */
+    color: #5e35b1;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+}
+
+.switches {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px; /* Space before whitelist */
 }
 
 .switch {
@@ -57,6 +78,7 @@ body {
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin: 0 auto;
 }
 
 .switch input { 
@@ -121,21 +143,229 @@ input:checked + .slider:before {
     font-weight: 500;
     color: #7e57c2;
     text-align: center;
-    padding: 4px 10px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     min-width: 80px;
+    width: fit-content;
+    padding: 4px 10px;
 }
 
-/* Updated: Remove border-radius from drop shadow */
-body::before {
-    content: '';
+/* Whitelist Section */
+.whitelist-section {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px; /* Space at bottom */
+}
+
+.dropbtn {
+    background-color: #9b59b6;
+    color: white;
+    padding: 12px 20px; /* Slightly taller */
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 100%;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.dropbtn:hover {
+    background-color: #8e44ad;
+}
+
+/* Simple Drawer Animation */
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    opacity: 1;
+  }
+}
+
+.dropdown-content {
+    display: none;
     position: absolute;
-    top: 0;
+    background-color: white;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 0 0 6px 6px; /* Rounded bottom corners only */
+    border: 1px solid #d1c4e9;
+    border-top: none; /* Remove top border for seamless look */
+    top: 100%;
     left: 0;
-    right: 0;
-    bottom: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* No border-radius here */
-    pointer-events: none;
-    z-index: -1;
+    margin-top: 0; /* Remove gap */
+    max-height: 0;
+    opacity: 0;
+    padding: 0; /* Remove all padding when closed */
+    box-sizing: border-box;
+}
+
+.dropdown-content.show {
+    display: block;
+    animation: slideDown 0.3s ease-out forwards;
+    overflow-y: auto; /* Vertical scrolling only */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding: 15px; /* Add equal padding on all sides */
+}
+
+/* Combined Search/Add Input - FIXED */
+.search-add-container {
+    width: 100%;
+    padding: 0; /* Remove any inherited padding */
+    margin: 0 0 15px 0;
+    box-sizing: border-box;
+}
+
+#searchAddInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1c4e9;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+#searchAddInput:focus {
+    outline: none;
+    border-color: #9b59b6;
+    box-shadow: 0 0 0 2px rgba(155, 89, 182, 0.2);
+}
+
+/* Add Button */
+#addFromSearchBtn {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+#addFromSearchBtn.show {
+    display: block;
+}
+
+#addFromSearchBtn:hover {
+    background-color: #8e44ad;
+}
+
+/* Whitelist Items Container */
+#whitelistItemsContainer {
+    max-height: 250px; /* Increased height */
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0; /* Remove padding */
+}
+
+#whitelistItems {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0; /* Remove padding */
+}
+
+/* Whitelist Item - FIXED */
+.whitelist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* Only vertical padding, no horizontal */
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word; /* Break long URLs */
+    word-break: break-all; /* Break at any character if needed */
+}
+
+.whitelist-item:hover {
+    background-color: #f9f5ff;
+}
+
+.whitelist-url {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 10px;
+    min-width: 0; /* Allows text to truncate properly */
+}
+
+.remove-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    flex-shrink: 0;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.remove-btn:hover {
+    background: #c0392b;
+}
+
+/* No Results Message */
+.no-results {
+    padding: 20px;
+    text-align: center;
+    color: #555555;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Remove the body::before shadow */
+body::before {
+    content: none; /* Remove the shadow overlay */
+}
+
+/* Prevent horizontal overflow in the entire popup */
+* {
+    max-width: 100%; /* Prevent any element from exceeding container width */
+}
+
+.dropdown-content {
+    /* ... your existing styles ... */
+    overflow-y: hidden; /* Hide during animation */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.dropdown-content::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome/Safari */
+}
+
+.dropdown-content.show {
+    /* ... your existing styles ... */
+    overflow-y: auto; /* Show scroll after animation */
 }

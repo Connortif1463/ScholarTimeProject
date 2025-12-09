@@ -1,181 +1,259 @@
-// List of forbidden websites
-var forbiddenWebsites = [
-    "https://www.youtube.com/",
-    "https://www.facebook.com/",
-    "https://www.instagram.com/",
-    "https://www.snapchat.com/",
-    "https://web.snapchat.com/",
-    "https://www.tiktok.com/",
-    "https://www.twitter.com/",
-    "https://twitter.com/",
-    "https://x.com/",
-    "https://www.x.com/",
-    "https://www.reddit.com/",
-    "https://www.pinterest.com/",
-    "https://www.tumblr.com/",
-    "https://www.linkedin.com/",
-    "https://www.whatsapp.com/",
-    "https://web.whatsapp.com/",
-    "https://discord.com/",
-    "https://discordapp.com/",
-    "https://www.messenger.com/",
-    "https://www.skype.com/",
-    "https://web.skype.com/",
-    "https://www.telegram.org/",
-    "https://web.telegram.org/",
-    "https://www.wechat.com/",
-    "https://www.viber.com/",
-    "https://www.myspace.com/",
-    "https://www.threads.net/",
-    "https://www.quora.com/",
-
-    // streaming and video
-    "https://www.youtube.com/",
-    "https://youtube.com/",
-    "https://www.netflix.com/",
-    "https://www.hulu.com/",
-    "https://www.disneyplus.com/",
-    "https://www.hbomax.com/",
-    "https://www.primevideo.com/",
-    "https://www.peacocktv.com/",
-    "https://www.paramountplus.com/",
-    "https://www.crunchyroll.com/",
-    "https://www.funimation.com/",
-    "https://www.twitch.tv/",
-    "https://www.vimeo.com/",
-    "https://www.dailymotion.com/",
-    "https://www.vudu.com/",
-    "https://www.tubitv.com/",
-    "https://www.plutotv.com/",
-    "https://blog.youtube/",
-    "https://play.google.com/",
-    "http://youtu.be",
-    "https://m.youtube.com/",
-
-    // music
-    "https://open.spotify.com/",
-    "https://www.spotify.com/",
-    "https://www.pandora.com/",
-    "https://www.apple.com/apple-music/",
-    "https://music.amazon.com/",
-    "https://soundcloud.com/",
-    "https://www.audible.com/",
-    "https://www.iheart.com/",
-    "https://www.tidal.com/",
-    "https://www.deezer.com/",
-
-    // gaming
-    "https://www.roblox.com/",
-    "https://www.minecraft.net/",
-    "https://www.epicgames.com/",
-    "https://store.steampowered.com/",
-    "https://steamcommunity.com/",
-    "https://www.origin.com/",
-    "https://www.ea.com/",
-    "https://www.ubisoft.com/",
-    "https://www.riotgames.com/",
-    "https://www.leagueoflegends.com/",
-    "https://playvalorant.com/",
-    "https://www.callofduty.com/",
-    "https://www.xbox.com/",
-    "https://www.playstation.com/",
-    "https://www.nintendo.com/",
-    "https://www.king.com/",
-    "https://www.candycrushsaga.com/",
-    "https://www.friv.com/",
-    "https://www.coolmathgames.com/",
-    "https://www.miniclip.com/",
-    "https://www.agame.com/",
-    "https://www.kongregate.com/",
-    "https://www.newgrounds.com/",
-    "https://www.armorgames.com/",
-    "https://www.y8.com/",
-    "https://pokemonshowdown.com/",
-    "https://www.chess.com/",
-    "https://www.lichess.org/",
-    "https://us.shop.battle.net/",
-    "https://www.blizzard.com/",
-    "https://www.kingdomofloathing.com/",
-    "https://www.neopets.com/",
-    "https://www.webkinz.com/",
-    "https://www.poptropica.com/",
-    "https://www.habbo.com/",
-    "https://www.guildwars2.com/",
-    "https://www.worldofwarcraft.com/",
-    "https://www.fortnite.com/",
-    "https://www.apexlegends.com/",
-    "https://www.overwatch.com/",
-    "https://www.destinythegame.com/",
-
-    // shopping and e-commerce
-    "https://www.amazon.com/",
-    "https://www.ebay.com/",
-    "https://www.walmart.com/",
-    "https://www.target.com/",
-    "https://www.bestbuy.com/",
-    "https://www.alibaba.com/",
-    "https://www.aliexpress.com/",
-    "https://www.shein.com/",
-    "https://www.wish.com/",
-    "https://www.etsy.com/",
-    "https://www.zappos.com/",
-    "https://www.asos.com/",
-    "https://www.nike.com/",
-    "https://www.adidas.com/",
-    "https://www.macys.com/",
-    "https://www.kohls.com/",
-    "https://www.homedepot.com/",
-    "https://www.lowes.com/",
-    "https://www.wayfair.com/",
-    "https://www.overstock.com/",
-    "https://www.stockx.com/",
-
-    // dating apps and adult sites
-    "https://www.tinder.com/",
-    "https://www.bumble.com/",
-    "https://www.hinge.com/",
-    "https://www.match.com/",
-    "https://www.okcupid.com/",
-    "https://www.pof.com/",
-    "https://help.adultfriendfinder.com/",
-    "https://www.pornhub.com/",
-    "https://www.xvideos.com/",
-    "https://www.XNXX.com/",
-    "https://www.redtube.com/",
-    "https://www.spankbang.com/",
-    "https://www.rule34.com/",
-    "https://www.beeg.com/",
-    "https://www.8muses.com/"
-];
-
-// Make it a window for access in forbidden.js
-window.forbiddenWebsites = forbiddenWebsites;
-
+// content.js
 console.log("ScholarTime content script loaded on:", window.location.href);
 
-// checks if url starts with a forbidden url
-function isForbidden(url) {
-    for (var i = 0; i < forbiddenWebsites.length; i++) {
-        if (url.startsWith(forbiddenWebsites[i])) {
-            console.log("Current url found forbidden: " + url);
-            return true;
-        }
+// List of forbidden DOMAINS
+var forbiddenDomains = [
+    "youtube.com",
+    "youtu.be",
+    "facebook.com",
+    "instagram.com",
+    "snapchat.com",
+    "tiktok.com",
+    "twitter.com",
+    "x.com",
+    "reddit.com",
+    "pinterest.com",
+    "tumblr.com",
+    "linkedin.com",
+    "whatsapp.com",
+    "discord.com",
+    "discordapp.com",
+    "messenger.com",
+    "skype.com",
+    "telegram.org",
+    "wechat.com",
+    "viber.com",
+    "myspace.com",
+    "threads.net",
+    "quora.com",
+    
+    // streaming and video
+    "netflix.com",
+    "hulu.com",
+    "disneyplus.com",
+    "hbomax.com",
+    "primevideo.com",
+    "peacocktv.com",
+    "paramountplus.com",
+    "crunchyroll.com",
+    "funimation.com",
+    "twitch.tv",
+    "vimeo.com",
+    "dailymotion.com",
+    "vudu.com",
+    "tubitv.com",
+    "plutotv.com",
+    "blog.youtube",
+    "play.google.com",
+    
+    // music
+    "spotify.com",
+    "open.spotify.com",
+    "pandora.com",
+    "apple.com",
+    "music.amazon.com",
+    "soundcloud.com",
+    "audible.com",
+    "iheart.com",
+    "tidal.com",
+    "deezer.com",
+    
+    // gaming
+    "roblox.com",
+    "minecraft.net",
+    "epicgames.com",
+    "steampowered.com",
+    "steamcommunity.com",
+    "origin.com",
+    "ea.com",
+    "ubisoft.com",
+    "riotgames.com",
+    "leagueoflegends.com",
+    "playvalorant.com",
+    "callofduty.com",
+    "xbox.com",
+    "playstation.com",
+    "nintendo.com",
+    "king.com",
+    "candycrushsaga.com",
+    "friv.com",
+    "coolmathgames.com",
+    "miniclip.com",
+    "agame.com",
+    "kongregate.com",
+    "newgrounds.com",
+    "armorgames.com",
+    "y8.com",
+    "pokemonshowdown.com",
+    "chess.com",
+    "lichess.org",
+    "battle.net",
+    "blizzard.com",
+    "kingdomofloathing.com",
+    "neopets.com",
+    "webkinz.com",
+    "poptropica.com",
+    "habbo.com",
+    "guildwars2.com",
+    "worldofwarcraft.com",
+    "fortnite.com",
+    "apexlegends.com",
+    "overwatch.com",
+    "destinythegame.com",
+    
+    // shopping and e-commerce
+    "amazon.com",
+    "ebay.com",
+    "walmart.com",
+    "target.com",
+    "bestbuy.com",
+    "alibaba.com",
+    "aliexpress.com",
+    "shein.com",
+    "wish.com",
+    "etsy.com",
+    "zappos.com",
+    "asos.com",
+    "nike.com",
+    "adidas.com",
+    "macys.com",
+    "kohls.com",
+    "homedepot.com",
+    "lowes.com",
+    "wayfair.com",
+    "overstock.com",
+    "stockx.com",
+
+    // dating apps and adult sites
+    "www.tinder.com",
+    "bumble.com",
+    "hinge.com",
+    "match.com",
+    "okcupid.com",
+    "pof.com",
+    "adultfriendfinder.com",
+    "pornhub.com",
+    "xvideos.com",
+    "XNXX.com",
+    "redtube.com",
+    "spankbang.com",
+    "rule34.com",
+    "beeg.com",
+    "8muses.com"
+
+];
+
+// Extract clean domain from URL
+function getCleanDomain(url) {
+    try {
+        // Remove protocol
+        let domain = url.replace(/^(https?:\/\/)?/, '');
+        // Remove www.
+        domain = domain.replace(/^www\./, '');
+        // Get domain part before first /
+        domain = domain.split('/')[0];
+        // Remove port
+        domain = domain.split(':')[0];
+        // Convert to lowercase
+        return domain.toLowerCase();
+    } catch (e) {
+        return '';
     }
-    return false;
 }
 
-// check current page on loading and send message to open forbidden if so
-if (isForbidden(window.location.href)) {
-    console.log("Content script: Blocking current page");
-    chrome.runtime.sendMessage({ action: "openForbiddenPage" });
+// Check if domain matches (handles subdomains)
+function domainsMatch(domain1, domain2) {
+    if (!domain1 || !domain2) return false;
+    
+    const d1 = domain1.toLowerCase();
+    const d2 = domain2.toLowerCase();
+    
+    // Exact match
+    if (d1 === d2) return true;
+    
+    // Check if one is a subdomain of the other
+    if (d1.endsWith('.' + d2)) return true;
+    if (d2.endsWith('.' + d1)) return true;
+    
+    // Get base domain (last two parts for .com, .org, etc.)
+    const getBaseDomain = (domain) => {
+        const parts = domain.split('.');
+        if (parts.length >= 2) {
+            return parts.slice(-2).join('.');
+        }
+        return domain;
+    };
+    
+    // Check base domain match
+    return getBaseDomain(d1) === getBaseDomain(d2);
 }
 
-// listen for background.js msg
+// Check if URL should be blocked (with whitelist)
+function shouldBlockUrl(url) {
+    return new Promise((resolve) => {
+        // Skip extension pages
+        if (url.includes("forbidden.html") || 
+            url.startsWith("chrome-extension://") ||
+            url.startsWith("chrome://")) {
+            resolve(false);
+            return;
+        }
+        
+        chrome.storage.local.get(['whitelist', 'enabled'], (result) => {
+            const whitelist = result.whitelist || [];
+            const isEnabled = result.enabled !== false;
+            const currentDomain = getCleanDomain(url);
+            
+            if (!isEnabled || !currentDomain) {
+                resolve(false);
+                return;
+            }
+            
+            // Check whitelist first - using domain matching
+            for (let whitelistUrl of whitelist) {
+                const whitelistDomain = getCleanDomain(whitelistUrl);
+                if (domainsMatch(currentDomain, whitelistDomain)) {
+                    console.log("Domain is whitelisted:", currentDomain, "matches", whitelistDomain);
+                    resolve(false);
+                    return;
+                }
+            }
+            
+            // Check forbidden domains
+            for (let forbiddenDomain of forbiddenDomains) {
+                if (domainsMatch(currentDomain, forbiddenDomain)) {
+                    console.log("Domain is forbidden:", currentDomain, "matches", forbiddenDomain);
+                    resolve(true);
+                    return;
+                }
+            }
+            
+            resolve(false);
+        });
+    });
+}
+
+// Check current page on load
+if (!window.location.href.includes("forbidden.html") && 
+    !window.location.href.startsWith("chrome-extension://") &&
+    !window.location.href.startsWith("chrome://")) {
+    
+    shouldBlockUrl(window.location.href).then(shouldBlock => {
+        if (shouldBlock) {
+            console.log("Content script: Blocking current page");
+            chrome.runtime.sendMessage({ action: "openForbiddenPage" });
+        }
+    });
+}
+
+// Listen for background.js messages
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "checkURL") {
-        const shouldBlock = isForbidden(request.url);
-        console.log("Content script: Checking URL", request.url, "-> Block:", shouldBlock);
-        sendResponse({ shouldBlock: shouldBlock });
+        shouldBlockUrl(request.url).then(shouldBlock => {
+            console.log("Content script: Checking URL", request.url, "-> Block:", shouldBlock);
+            sendResponse({ shouldBlock: shouldBlock });
+        });
+        return true;
     }
     return true;
 });

@@ -9,18 +9,38 @@
 </head>
 <body>
     <!-- ScholarTime Settings Title -->
-    <h3 class="settings-title">ScholarTime Settings</h3>
-    <h8>[refresh to apply]</h8>
+    <img src="icons/ScholarTime Large Transparent Logo.png">
+    <h8>[refresh to apply settings]</h8>
 
-    <!-- On Off Switch -->
+    <!-- On/Off Section -->
+    <h3>On/Off</h3>
     <div class="switches">
-        <h3>On/Off</h3>
-        <!-- Rounded switch -->
         <label class="switch">
             <input type="checkbox" id="toggleSwitch">
             <span class="slider round"></span>
         </label>
     </div>
-    
+
+    <!-- Whitelist Section -->
+    <div class="whitelist-section">
+        <!-- Dropdown for Whitelist -->
+        <div class="dropdown">
+            <button class="dropbtn">View Whitelist (0 sites)</button>
+                <div class="dropdown-content" id="whitelistDropdown">
+                    <!-- Combined Search/Add Input -->
+                    <div class="search-add-container">
+                        <input type="text" 
+                            id="searchAddInput" 
+                            placeholder="Search or add page, ex: youtube.com">
+                        <button id="addFromSearchBtn" class="add-btn">Add "example.com"</button>
+                    </div>
+                    
+                    <!-- Results/Whitelist Items -->
+                    <div id="whitelistItemsContainer">
+                        <div id="whitelistItems"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
