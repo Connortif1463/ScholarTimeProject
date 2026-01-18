@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Whitelist button - add to whitelist and continue
     if (whitelistBtn) {
+
+        // bool for determining whether the user actually wants to do it or not
+        const doWhitelistingAction = true;
+
         whitelistBtn.addEventListener('click', function() {
             console.log("Whitelist button clicked");
             
@@ -69,40 +73,56 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert("Cannot determine which site to whitelist. Please use the extension popup to add sites to your whitelist.");
                 return;
             }
-            
-            // Show loading state
-            whitelistBtn.textContent = "Adding to Whitelist...";
-            whitelistBtn.disabled = true;
-            
-            // Send message to background to add to whitelist and redirect
-            chrome.runtime.sendMessage({ 
-                action: "addToWhitelistAndRedirect",
-                urlToWhitelist: currentBlockedUrl
-            }, (response) => {
-                if (response && response.success) {
-                    console.log("Redirecting to:", response.redirectTo);
-                    
-                    if (response.addedToWhitelist) {
-                        // Brief delay to show success
-                        setTimeout(() => {
-                            window.location.href = response.redirectTo;
-                        }, 500);
-                    } else {
-                        // Already in whitelist, just redirect
-                        window.location.href = response.redirectTo;
+
+            if (confirm("Are you sure you wanna go to this site?")){
+                if (confirm("Are you really sure?"))
+                {
+                    if (confirm("Cause if you're NOT really sure, you probably shouldn't."))
+                    {
+                        // Continues and allows whitelistBtn to stay pressed
                     }
-                } else {
-                    // Error handling
-                    alert("Failed to add to whitelist. Please try again.");
-                    whitelistBtn.textContent = "Add to Whitelist & Continue";
-                    whitelistBtn.disabled = false;
+                    else {doWhitelistingAction = false}
                 }
-            });
+                else {doWhitelistingAction = false}
+            }
+            else {doWhitelistingAction = false}
+            
+            if(doWhitelistingAction)
+            {
+                // Show loading state
+                whitelistBtn.textContent = "Adding to Whitelist...";
+                whitelistBtn.disabled = true;
+                
+                // Send message to background to add to whitelist and redirect
+                chrome.runtime.sendMessage({ 
+                    action: "addToWhitelistAndRedirect",
+                    urlToWhitelist: currentBlockedUrl
+                }, (response) => {
+                    if (response && response.success) {
+                        console.log("Redirecting to:", response.redirectTo);
+                        
+                        if (response.addedToWhitelist) {
+                            // Brief delay to show success
+                            setTimeout(() => {
+                                window.location.href = response.redirectTo;
+                            }, 500);
+                        } else {
+                            // Already in whitelist, just redirect
+                            window.location.href = response.redirectTo;
+                        }
+                    } else {
+                        // Error handling
+                        alert("Failed to add to whitelist. Please try again.");
+                        whitelistBtn.textContent = "Add to Whitelist & Continue";
+                        whitelistBtn.disabled = false;
+                    }
+                });
+            }
         });
     }
     
-    // Also allow adding via popup while on this page
-    // Listen for storage changes (when whitelist is updated via popup)
+    // Also allows adding via settings while on this page
+    // and listens for storage changes (when whitelist is updated in the settings)
     chrome.storage.onChanged.addListener((changes, namespace) => {
         if (namespace === 'local' && changes.whitelist && currentBlockedUrl) {
             console.log("Whitelist updated, checking if we should auto-redirect");
